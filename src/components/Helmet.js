@@ -1,6 +1,6 @@
 import {Helmet} from 'react-helmet';
 
-const Helmet = () => {
+const HelmetCall = () => {
     <Helmet>
         <meta name='description' content='Little Lemon description here.' />
         <meta name='og:title' content='Little Lemon' />
@@ -8,3 +8,5 @@ const Helmet = () => {
         <meta name='og:link' content='../images/little-lemon-social-box-img.jpg' />
     </Helmet>
 };
+
+export default HelmetCall;
