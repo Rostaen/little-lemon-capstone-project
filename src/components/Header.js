@@ -1,6 +1,8 @@
 const Header = () => {
     return (
-        <header></header>
+        <header>
+            <img src="../images/little-lemon-logo.jpg" alt="Little Lemon Logo" />
+        </header>
     )
 };
 
