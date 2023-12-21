@@ -1,4 +1,35 @@
+import Links from "./Link";
+
 const Footer = () => {
+    const linkElements = [
+        {linkName: "Home", link: "index.html"},
+        {linkName: "About", link: "index.html"},
+        {linkName: "Menu", link: "index.html"},
+        {linkName: "Reservations", link: "index.html"},
+        {linkName: "Online Menu", link: "index.html"},
+        {linkName: "Login", link: "index.html"},
+    ];
+
+    const socialElements = [
+        {linkName: "Meta", link: "index.html"},
+        {linkName: "X", link: "index.html"},
+        {linkName: "TikTok", link: "index.html"},
+        {linkName: "YouTube", link: "index.html"},
+        {linkName: "LinkedIn", link: "index.html"},
+    ];
+
+    const linkList = linkElements.map((link) =>
+        <li key={link.linkName}>
+            <Links link={link.link} linkName={link.linkName} />
+        </li>
+    );
+
+    const socialList = socialElements.map((social) =>
+        <li key={social.linkName}>
+            <Links link={social.link} linkName={social.linkName} />
+        </li>
+    );
+
     return (
         <footer className="row">
             <div className="col col-12 col-lg-3 imgContainer">
@@ -6,14 +37,7 @@ const Footer = () => {
             </div>
             <nav className="col col-12 col-lg-3">
                 <h2>Doormat Navigation</h2>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html">About</a></li>
-                    <li><a href="index.html">Menu</a></li>
-                    <li><a href="index.html">Reservations</a></li>
-                    <li><a href="index.html">Order Online</a></li>
-                    <li><a href="index.html">Login</a></li>
-                </ul>
+                <ul className='row'>{linkList}</ul>
             </nav>
             <div className="col col-12 col-lg-3">
                 <h2>Contact</h2>
@@ -25,13 +49,7 @@ const Footer = () => {
             </div>
             <div className="col col-12 col-lg-3">
                 <h2>Social Media Links</h2>
-                <ul>
-                    <li><a href="index.html">Meta</a></li>
-                    <li><a href="index.html">X</a></li>
-                    <li><a href="index.html">TikTok</a></li>
-                    <li><a href="index.html">YouTube</a></li>
-                    <li><a href="index.html">LinkedIn</a></li>
-                </ul>
+                <ul>{socialList}</ul>
             </div>
         </footer>
     )
