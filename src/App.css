@@ -22,11 +22,15 @@ a{
   color: #495e57;
 }
 
+nav{
+  display: grid;
+  align-items: center;
+}
 nav li{
   display: flex;
 }
 nav a{
-  font-size: 10px;
+  font-size: 16px;
   font-weight: bold;
   padding: 5px;
   transition: 0.3s;
@@ -40,8 +44,36 @@ nav a:hover{
 }
 
 footer img{
-  width: 100px !important;
+  width: 50%;
+  margin: auto;
 }
 footer h2{
   color: #333;
+}
+footer nav{
+  display: block;
+}
+footer .imgContainer{
+  display: grid;
+  align-items: center;
+}
+
+/* Media query for screens with a maximum width of 480 pixels */
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+    margin: 10px;
+  }
+  footer h2,
+  footer li,
+  footer nav li{
+    text-align: center;
+    justify-content: center;
+  }
+  footer ul, nav ul{
+    padding-left: 0px;
+  }
+  footer img{
+    width: 20%;
+  }
 }

@@ -1,8 +1,10 @@
 const Footer = () => {
     return (
         <footer className="row">
-            <img src="../images/little-lemon-vert-logo.png" alt="Little Lemon Lemon Logo" className="col col-xl-3" />
-            <nav className="col col-xl-3">
+            <div className="col col-12 col-lg-3 imgContainer">
+                <img src="../images/little-lemon-vert-logo.png" alt="Little Lemon Lemon Logo" />
+            </div>
+            <nav className="col col-12 col-lg-3">
                 <h2>Doormat Navigation</h2>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -13,7 +15,7 @@ const Footer = () => {
                     <li><a href="index.html">Login</a></li>
                 </ul>
             </nav>
-            <div className="col col-xl-3">
+            <div className="col col-12 col-lg-3">
                 <h2>Contact</h2>
                 <ul>
                     <li>Address</li>
@@ -21,7 +23,7 @@ const Footer = () => {
                     <li>Email</li>
                 </ul>
             </div>
-            <div className="col col-xl-3">
+            <div className="col col-12 col-lg-3">
                 <h2>Social Media Links</h2>
                 <ul>
                     <li><a href="index.html">Meta</a></li>
