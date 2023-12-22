@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
+import AvailableTimes from "./AvailableTimes";
+import Occasions from "./Occasions";
 
 const BookingForm = () => {
     const [date, setDate] = useState();
@@ -12,34 +14,43 @@ const BookingForm = () => {
         e.preventDefault();
     };
 
+    const changeDate = (e) => {
+        const newDate = e.target.value;
+        setDate(newDate);
+    }
+    const changeTime = (e) => {
+        const newTime = e.target.value;
+        setTime(newTime);
+    }
+    const changeGuests = (e) => {
+        const newGuests = e.target.value;
+        setGuests(newGuests);
+    }
+    const changeOccasion = (e) => {
+        const newOccasion = e.target.value;
+        setTheOccasion(newOccasion);
+    }
+
     return (
         <form onSubmit={handleSubmit}>
             <div>
                 <FormLabel htmlFor="res-date">Choose date</FormLabel>
-                <Input type="date" id="res-date" />
+                <Input type="date" id="res-date" onChange={changeDate} />
             </div>
             <div>
                 <FormLabel htmlFor="res-time">Choose time</FormLabel>
-                <Select id="res-time ">
-                    <option>17:00</option>
-                    <option>18:00</option>
-                    <option>19:00</option>
-                    <option>20:00</option>
-                    <option>21:00</option>
-                    <option>22:00</option>
+                <Select id="res-time " onChange={changeTime}>
+                    <AvailableTimes />
                 </Select>
             </div>
             <div>
                 <FormLabel htmlFor="guests">Number of guests</FormLabel>
-                <Input type="number" placeholder="1" min="1" max="10" id="guests" />
+                <Input type="number" placeholder="1" min="1" max="10" id="guests" onChange={changeGuests} />
             </div>
             <div>
                 <FormLabel htmlFor="occasion">Occasion</FormLabel>
-                <Select id="occasion">
-                    <option>Birthday</option>
-                    <option>Anniversary</option>
-                    <option>Graduation</option>
-                    <option>Celebration</option>
+                <Select id="occasion" onChange={changeOccasion}>
+                    <Occasions />
                 </Select>
             </div>
             <div>

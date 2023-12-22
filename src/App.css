@@ -9,6 +9,11 @@ h1,h2,h3,h4,h5,h6{
   font-weight: 500;
 }
 
+button{
+  box-shadow: none;
+  border-width: 0px;
+}
+
 header img{
   width: 100%;
 }
@@ -26,11 +31,14 @@ nav{
   display: grid;
   align-items: center;
 }
+nav ul{
+  margin-bottom: 0px;
+}
 nav li{
   display: flex;
 }
 nav a{
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   padding: 5px;
   transition: 0.3s;
@@ -41,6 +49,56 @@ nav a:hover{
   color:#f4ce14;
   background-color: #495e57;
   transition: 0.3s;
+}
+
+.container{
+  max-width: 960px;
+}
+main.container-fluid{
+  margin: 0px;
+  padding: 0px;
+}
+div.hero-section{
+  background-color: #495e57;
+  max-height: 300px;
+}
+.hero-section h1{
+  color:#f4ce14;
+  margin-bottom: 0px;
+}
+.hero-section h1, .hero-section h2{
+  line-height: 30px;
+}
+.hero-section h2, .hero-section p{
+  color: #edefee;
+}
+.hero-section p{
+  width: 400px;
+}
+button.reserveTable{
+  background: #f4ce14;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+button.reserveTable:hover{
+  background-color: #ee9972;
+  transition: 0.3s;
+}
+button.reserveTable:active{
+  background-color: #333;
+  color: #edefee;
+  transition: 0.3s;
+}
+.hero-section .imgContainer{
+  display: grid;
+}
+.hero-section img{
+  width: 50%;
+  overflow: visible;
+  margin-left: auto;
+  border-radius: 10px;
 }
 
 footer img{
