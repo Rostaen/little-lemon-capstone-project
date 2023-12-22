@@ -31,24 +31,28 @@ const Footer = () => {
     );
 
     return (
-        <footer className="row">
+        <footer className="row pb-5">
             <div className="col col-12 col-lg-3 imgContainer">
                 <img src="../images/little-lemon-vert-logo.png" alt="Little Lemon Lemon Logo" />
             </div>
             <nav className="col col-12 col-lg-3">
-                <h2>Doormat Navigation</h2>
+                <h2>Navigation</h2>
                 <ul className='row'>{linkList}</ul>
             </nav>
             <div className="col col-12 col-lg-3">
                 <h2>Contact</h2>
                 <ul>
-                    <li>Address</li>
-                    <li>Phone Number</li>
-                    <li>Email</li>
+                    <li className="pb-2">
+                        Little Lemon<br/>
+                        1095 Vesta Drive<br/>
+                        Chicago, IL 60605
+                    </li>
+                    <li className="pb-2">773-555-5667</li>
+                    <li className="pb-2">contact@littlelemon.com</li>
                 </ul>
             </div>
-            <div className="col col-12 col-lg-3">
-                <h2>Social Media Links</h2>
+            <div className="col col-12 col-lg-3 socials">
+                <h2>Socials</h2>
                 <ul>{socialList}</ul>
             </div>
         </footer>

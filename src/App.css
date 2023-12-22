@@ -7,6 +7,11 @@
 h1,h2,h3,h4,h5,h6{
   font-family: Markazi Text, serif;
   font-weight: 500;
+  color: #333;
+}
+
+p{
+  color:#333;
 }
 
 button{
@@ -37,14 +42,14 @@ nav ul{
 nav li{
   display: flex;
 }
-nav a{
+nav a, footer a{
   font-size: 14px;
   font-weight: bold;
   padding: 5px;
   transition: 0.3s;
   border-radius: 5px;
 }
-nav a:hover{
+nav a:hover, footer a:hover{
   padding:5px;
   color:#f4ce14;
   background-color: #495e57;
@@ -62,11 +67,12 @@ div.hero-section{
   background-color: #495e57;
   max-height: 300px;
 }
-.hero-section h1{
+.hero-section h1, .lowerSection h1{
   color:#f4ce14;
   margin-bottom: 0px;
 }
-.hero-section h1, .hero-section h2{
+.hero-section h1, .hero-section h2,
+.lowerSection h1, .lowerSection h2{
   line-height: 30px;
 }
 .hero-section h2, .hero-section p{
@@ -145,8 +151,35 @@ img.star{
   background-color: #edefee;
   min-height: 330px;
 }
+.testimonalContainer p.name{
+  font-weight: bold;
+}
 p.quote{
   margin-bottom: 0px;
+}
+
+section.lowerSection{
+  background-color: #edefee;
+  margin-bottom: 40px;
+}
+.lowerSection h2{
+  color:#495e57;
+}
+.lowerSection p{
+  margin-bottom: 0px;
+}
+.lowerImages{
+  position: relative;
+}
+.lowerImages img{
+  width: 60%;
+  position: absolute;
+}
+img.lowerImage1{
+  right: 0px;
+}
+img.lowerImage2{
+  top: 100px;
 }
 
 footer img{
@@ -162,6 +195,13 @@ footer nav{
 footer .imgContainer{
   display: grid;
   align-items: center;
+}
+footer ul{
+  margin-left: 0px;
+  padding-left: 0px;
+}
+footer a{
+  padding-bottom: 10px;
 }
 
 /* Media query for screens with a maximum width of 480 pixels */

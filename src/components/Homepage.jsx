@@ -64,12 +64,29 @@ const HomePage = () => {
                     </div>
                 </section>
                 <section className="container testimonials">
-                    <h2 className="text-center">Testimonials</h2>
+                    <h2 className="text-center mb-4">Testimonials</h2>
                     <div className="row">
-                            <CustomersSay name="Robert" image="../images/testimonial 1.jpg" quote="Little Lemon's exquisite flavors take me on a culinary journey through the Mediterranean with every bite!" />
-                            <CustomersSay name="Maria" image="../images/testimonial 2.jpg" quote="From the warm ambiance to the delectable dishes, dining at Little Lemon is like taking a vacation to the Mediterranean without leaving town." />
-                            <CustomersSay name="Jaquelin" image="../images/testimonial 3.jpg" quote="The fresh ingredients and authentic recipes at Little Lemon make it my go-to spot for a taste of the Mediterranean in the heart of the city." />
-                            <CustomersSay name="Trevor" image="../images/testimonial 4.jpg" quote="As a food enthusiast, Little Lemon has become my top choice for experiencing the rich and diverse flavors of Mediterranean cuisine – a true hidden gem!" />
+                        <CustomersSay name="Robert" image="../images/testimonial 1.jpg" quote="Little Lemon's exquisite flavors take me on a culinary journey through the Mediterranean with every bite!" />
+                        <CustomersSay name="Maria" image="../images/testimonial 2.jpg" quote="From the warm ambiance to the delectable dishes, dining at Little Lemon is like taking a vacation to the Mediterranean without leaving town." />
+                        <CustomersSay name="Jaquelin" image="../images/testimonial 3.jpg" quote="The fresh ingredients and authentic recipes at Little Lemon make it my go-to spot for a taste of the Mediterranean in the heart of the city." />
+                        <CustomersSay name="Trevor" image="../images/testimonial 4.jpg" quote="As a food enthusiast, Little Lemon has become my top choice for experiencing the rich and diverse flavors of Mediterranean cuisine – a true hidden gem!" />
+                    </div>
+                </section>
+                <section className="container lowerSection p-4">
+                    <div className="row">
+                        <div className="col col-12 col-lg-6">
+                            <h1>Little Lemon</h1>
+                            <h2>Chicago</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eleifend dolor odio, quis mattis dolor maximus id. Praesent ac velit ut libero tempus semper. Integer dictum dolor sed condimentum euismod. Etiam hendrerit, orci eget cursus efficitur, justo quam varius lorem, in tempor est nisi semper eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus pretium interdum nulla sed condimentum. Nullam ut egestas turpis. Vestibulum at malesuada ex. Vestibulum laoreet lobortis lorem.
+                            </p>
+                        </div>
+                        <div className="col col-12 col-lg-6">
+                            <div className="lowerImages">
+                                <img src="../images/restaurant.jpg" alt="Image of restaurant down the length of the building." className="lowerImage1" />
+                                <img src="../images/Mario and Adrian A.jpg" alt="Image of cooks discussing a meal." className="lowerImage2" />
+                            </div>
+                        </div>
                     </div>
                 </section>
             </main>
