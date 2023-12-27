@@ -47,46 +47,73 @@ const BookingForm = (props) => {
     }
 
     return (
-        <div className="p-3 row">
-            <div className="col col-12 col-lg-4 reservationForm">
-                <form onSubmit={handleSubmit}>
+        <main className="p-3 row">
+            <section className="col col-12 col-lg-4 reservationForm">
+                <form onSubmit={handleSubmit} aria-labelledby="bookingFormLabel">
                     <div className="p-2">
                         <label className="pe-2" htmlFor="res-date">Choose date</label>
-                        <input className="p-1" type="date" id="res-date" onChange={changeDate} />
+                        <input
+                        className="p-1"
+                        type="date"
+                        id="res-date"
+                        onChange={changeDate}aria-required="true" />
                     </div>
                     <div className="p-2">
                         <label className="pe-2" htmlFor="res-time">Choose time</label>
-                        <select className="p-1" id="res-time " onChange={changeTime}>
+                        <select
+                            className="p-1"
+                            id="res-time
+                            "
+                            onChange={changeTime}
+                            aria-label="Select a time">
                             <AvailableTimes />
                         </select>
                     </div>
                     <div className="p-2">
                         <label className="pe-2" htmlFor="guests">Number of guests</label>
-                        <input className="p-1" type="number" placeholder="1" min="1" max="10" id="guests" onChange={changeGuests} />
+                        <input
+                            className="p-1"
+                            type="number"
+                            placeholder="1"
+                            min="1"
+                            max="10"
+                            id="guests"
+                            onChange={changeGuests}
+                            aria-label="Number of guests"
+                            aria-describedby="guestsHint"/>
                     </div>
                     <div className="p-2">
                         <label className="pe-2" htmlFor="occasion">Occasion</label>
-                        <select className="p-1" id="occasion" onChange={changeOccasion}>
+                        <select
+                            className="p-1"
+                            id="occasion"
+                            onChange={changeOccasion}
+                            aria-label="Select an occasion">
                             <Occasions />
                         </select>
                     </div>
                     <div className="p-2">
-                        <input className="btn" type="submit" value="Make Your Reservation" />
+                        <input
+                            className="btn"
+                            type="submit"
+                            value="Make Your Reservation"
+                            aria-label="Submit reservation form" />
                     </div>
                 </form>
-            </div>
-            <div className="col col-12 col-lg-4 availableTimes">
+            </section>
+            <section className="col col-12 col-lg-4 availableTimes">
                 <h2 className="text-center">Available Times</h2>
+                <h3 className="text-center">{date}</h3>
                 <ul>
                    {state.availableTimes.map((time) => (
                     <li key={time} className="text-center">{time}</li>
                    ))}
                 </ul>
-            </div>
-            <div className="col col-12 col-lg-4">
+            </section>
+            <section className="col col-12 col-lg-4">
                 <img src="../images/fishCooking.jpg" alt="Fish cooking on a BBQ" className="bookingImage" />
-            </div>
-        </div>
+            </section>
+        </main>
     )
 }
 
