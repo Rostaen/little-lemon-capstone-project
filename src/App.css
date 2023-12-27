@@ -182,21 +182,21 @@ img.lowerImage2{
   top: 100px;
 }
 
-div.reservationForm{
+section.reservationForm{
   background-color: #edefee;
   border-radius: 10px;
 }
-div.reservationForm .btn{
+section.reservationForm .btn{
   background-color: #f4ce14;
   transition: 0.3s;
   padding: 10px;
   font-weight: bold;
 }
-div.reservationForm .btn:hover{
+section.reservationForm .btn:hover{
   background-color: #ee9972;
   transition: 0.3s;
 }
-div.reservationForm .btn:active{
+section.reservationForm .btn:active{
   background-color: #495e57;
   color: #edefee;
   transition: 0.3s;

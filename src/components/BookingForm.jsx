@@ -21,6 +21,7 @@ const BookingForm = (props) => {
     const [selectedTime, setSelectedTime] = useState("");
 
     const initializeTimes = () => {
+        console.log("initializeTimes called!");
         dispatch({ type: "SET_AVAILABLE_TIMES", payload: props.updateTimes() });
     };
 
