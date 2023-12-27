@@ -201,6 +201,17 @@ div.reservationForm .btn:active{
   color: #edefee;
   transition: 0.3s;
 }
+.availableTimes ul{
+  padding: 0px;
+}
+.availableTimes li{
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+img.bookingImage{
+  width: 100%;
+  border-radius: 10px;
+}
 
 footer img{
   width: 50%;

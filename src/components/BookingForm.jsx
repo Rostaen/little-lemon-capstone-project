@@ -48,7 +48,7 @@ const BookingForm = (props) => {
 
     return (
         <div className="p-3 row">
-            <div className="col col-12 col-lg-6 reservationForm">
+            <div className="col col-12 col-lg-4 reservationForm">
                 <form onSubmit={handleSubmit}>
                     <div className="p-2">
                         <label className="pe-2" htmlFor="res-date">Choose date</label>
@@ -75,13 +75,16 @@ const BookingForm = (props) => {
                     </div>
                 </form>
             </div>
-            <div className="col col-12 col-lg-6">
-                <h2 className="availableTimes">Available Times</h2>
+            <div className="col col-12 col-lg-4 availableTimes">
+                <h2 className="text-center">Available Times</h2>
                 <ul>
                    {state.availableTimes.map((time) => (
-                    <li key={time}>{time}</li>
+                    <li key={time} className="text-center">{time}</li>
                    ))}
                 </ul>
+            </div>
+            <div className="col col-12 col-lg-4">
+                <img src="../images/fishCooking.jpg" alt="Fish cooking on a BBQ" className="bookingImage" />
             </div>
         </div>
     )
