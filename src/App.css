@@ -182,6 +182,26 @@ img.lowerImage2{
   top: 100px;
 }
 
+div.reservationForm{
+  background-color: #edefee;
+  border-radius: 10px;
+}
+div.reservationForm .btn{
+  background-color: #f4ce14;
+  transition: 0.3s;
+  padding: 10px;
+  font-weight: bold;
+}
+div.reservationForm .btn:hover{
+  background-color: #ee9972;
+  transition: 0.3s;
+}
+div.reservationForm .btn:active{
+  background-color: #495e57;
+  color: #edefee;
+  transition: 0.3s;
+}
+
 footer img{
   width: 50%;
   margin: auto;

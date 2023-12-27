@@ -10,9 +10,7 @@ const Occasions = () => {
         <option key={theOccasion}>{theOccasion}</option>
     )
 
-    return(
-        {occasionList}
-    )
+    return occasionList;
 }
 
 export default Occasions;

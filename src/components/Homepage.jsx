@@ -1,6 +1,3 @@
-import Nav from "./Nav";
-import Header from "./Header";
-import Footer from "./Footer";
 import CallToAction from "./CallToAction";
 import SpecialContainer from "./SpecialContainer";
 import CustomersSay from "./CustomersSay";
@@ -8,12 +5,6 @@ import CustomersSay from "./CustomersSay";
 const HomePage = () => {
     return (
         <>
-            <div className="container p-3">
-                <div className='row'>
-                    <Header />
-                    <Nav />
-                </div>
-            </div>
             <main className="container-fluid">
                 <div className="hero-section">
                     <section className="container pt-4 pb-4">
@@ -83,16 +74,13 @@ const HomePage = () => {
                         </div>
                         <div className="col col-12 col-lg-6">
                             <div className="lowerImages">
-                                <img src="../images/restaurant.jpg" alt="Image of restaurant down the length of the building." className="lowerImage1" />
-                                <img src="../images/Mario and Adrian A.jpg" alt="Image of cooks discussing a meal." className="lowerImage2" />
+                                <img src="../images/restaurant.jpg" alt="Restaurant down the length of the building." className="lowerImage1" />
+                                <img src="../images/Mario and Adrian A.jpg" alt="Cooks discussing a meal." className="lowerImage2" />
                             </div>
                         </div>
                     </div>
                 </section>
             </main>
-            <div className="container p-2">
-                <Footer />
-            </div>
         </>
     )
 }

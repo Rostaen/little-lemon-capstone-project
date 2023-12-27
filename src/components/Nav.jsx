@@ -6,7 +6,7 @@ const Nav = () => {
         {linkName: "Home", link: "index.html"},
         {linkName: "About", link: "index.html"},
         {linkName: "Menu", link: "index.html"},
-        {linkName: "Reservations", link: "index.html"},
+        {linkName: "Reservations", link: "booking.html"},
         {linkName: "Online Menu", link: "index.html"},
         {linkName: "Login", link: "index.html"},
     ];

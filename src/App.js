@@ -1,10 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Homepage from './components/Homepage';
+import Main from './components/Main';
 import './App.css';
 
 function App() {
   return (
-    <Homepage />
+    <>
+      <Main />
+    </>
   );
 }
 

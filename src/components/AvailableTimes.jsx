@@ -12,9 +12,7 @@ const AvailableTimes = () => {
         <option key={time}>{time}</option>
     )
 
-    return(
-        {timeList}
-    )
+    return timeList;
 }
 
 export default AvailableTimes;
