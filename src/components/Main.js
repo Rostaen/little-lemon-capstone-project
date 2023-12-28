@@ -27,7 +27,7 @@ const Main = () => {
             <div className="container p-3">
                 <div className='row'>
                     <Header />
-                    <Nav  />
+                    <Nav />
                 </div>
             </div>
             <BookingPage

@@ -1,8 +1,9 @@
-import { useState, useReducer } from "react";
-import { useFormik } from "formik";
-import * as Yup from 'yup';
+// import { useFormik } from "formik";
+// import * as Yup from 'yup';
+import { useState, useEffect, useReducer } from "react";
 import AvailableTimes from "./AvailableTimes";
 import Occasions from "./Occasions";
+import fakeAPI from "./FakeAPI";
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -20,10 +21,20 @@ const BookingForm = (props) => {
     const [theOccasion, setTheOccasion] = useState("Celebration");
     const [selectedTime, setSelectedTime] = useState("");
 
-    const initializeTimes = () => {
-        console.log("initializeTimes called!");
-        dispatch({ type: "SET_AVAILABLE_TIMES", payload: props.updateTimes() });
-    };
+    const fetchData = async () => {
+        try {
+            return await fakeAPI.fetchAPI(new Date(date));
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            return [];
+        }
+    }
+
+    useEffect(() => {
+       fetchData().then((data) => {
+        dispatch({ type: "SET_AVAILABLE_TIMES", payload: data });
+       })
+    }, [date]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -32,11 +43,10 @@ const BookingForm = (props) => {
     const changeDate = (e) => {
         const newDate = e.target.value;
         setDate(newDate);
-        initializeTimes();
     }
     const changeTime = (e) => {
         const newTime = e.target.value;
-        props.setSelectedTime(newTime);
+        setSelectedTime(newTime);
     }
     const changeGuests = (e) => {
         const newGuests = e.target.value;
@@ -57,7 +67,8 @@ const BookingForm = (props) => {
                         className="p-1"
                         type="date"
                         id="res-date"
-                        onChange={changeDate}aria-required="true" />
+                        onChange={changeDate}
+                        aria-required="true" />
                     </div>
                     <div className="p-2">
                         <label className="pe-2" htmlFor="res-time">Choose time</label>
