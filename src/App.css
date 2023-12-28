@@ -88,6 +88,14 @@ button.yellowButton{
   font-weight: bold;
   transition: 0.3s;
 }
+.yellowButton a{
+  transition: 0.3s;
+  color: #333;
+}
+.yellowButton a:active{
+  color: #edefee;
+  transition: 0.3s;
+}
 button.yellowButton:hover{
   background-color: #ee9972;
   transition: 0.3s;

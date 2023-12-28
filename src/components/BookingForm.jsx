@@ -14,7 +14,7 @@ const reducer = (state, action) => {
     }
 }
 
-const BookingForm = (props) => {
+const BookingForm = () => {
     const [state, dispatch] = useReducer(reducer, {availableTimes: [] });
     const [date, setDate] = useState();
     const [guests, setGuests] = useState(1);

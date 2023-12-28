@@ -1,32 +1,32 @@
-import Links from "./Link";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     const linkElements = [
-        {linkName: "Home", link: "index.html"},
-        {linkName: "About", link: "index.html"},
-        {linkName: "Menu", link: "index.html"},
-        {linkName: "Reservations", link: "index.html"},
-        {linkName: "Online Menu", link: "index.html"},
-        {linkName: "Login", link: "index.html"},
+        {linkName: "Home", link: "/"},
+        {linkName: "About", link: "/"},
+        {linkName: "Menu", link: "/"},
+        {linkName: "Reservations", link: "/reservations"},
+        {linkName: "Online Menu", link: "/"},
+        {linkName: "Login", link: "/"},
     ];
 
     const socialElements = [
-        {linkName: "Meta", link: "index.html"},
-        {linkName: "X", link: "index.html"},
-        {linkName: "TikTok", link: "index.html"},
-        {linkName: "YouTube", link: "index.html"},
-        {linkName: "LinkedIn", link: "index.html"},
+        {linkName: "Meta", link: "/"},
+        {linkName: "X", link: "/"},
+        {linkName: "TikTok", link: "/"},
+        {linkName: "YouTube", link: "/"},
+        {linkName: "LinkedIn", link: "/"},
     ];
 
     const linkList = linkElements.map((link) =>
         <li key={link.linkName}>
-            <Links link={link.link} linkName={link.linkName} />
+            <Link to={link.link}>{link.linkName}</Link>
         </li>
     );
 
     const socialList = socialElements.map((social) =>
         <li key={social.linkName}>
-            <Links link={social.link} linkName={social.linkName} />
+            <Link to={social.link}>{social.linkName}</Link>
         </li>
     );
 

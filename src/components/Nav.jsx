@@ -1,14 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Links from './Link';
+import { Link } from "react-router-dom";
 
 const Nav = () => {
     const linkElements = [
-        {linkName: "Home", link: "index.html"},
-        {linkName: "About", link: "index.html"},
-        {linkName: "Menu", link: "index.html"},
-        {linkName: "Reservations", link: "booking.html"},
-        {linkName: "Online Menu", link: "index.html"},
-        {linkName: "Login", link: "index.html"},
+        {linkName: "Home", link: "/"},
+        {linkName: "About", link: "/"},
+        {linkName: "Menu", link: "/"},
+        {linkName: "Reservations", link: "/reservations"},
+        {linkName: "Online Menu", link: "/"},
+        {linkName: "Login", link: "/"},
     ];
 
     const linkList = linkElements.map((link) =>
@@ -16,7 +16,7 @@ const Nav = () => {
             className='col col-12 col-lg-2 justify-content-center'
             key={link.linkName}
         >
-            <Links link={link.link} linkName={link.linkName} />
+            <Link to={link.link}>{link.linkName}</Link>
         </li>
     );
 

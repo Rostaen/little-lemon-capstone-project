@@ -13,7 +13,7 @@ const HomePage = () => {
                                 <h1>Little Lemon</h1>
                                 <h2>Chicago</h2>
                                 <p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
-                                <CallToAction text="Reserve a Table" useClassName="yellowButton" aria-label="Reserve a table at Little Lemon" />
+                                <CallToAction text="Reserve a Table" useClassName="yellowButton" link="/reservations" aria-label="Reserve a table at Little Lemon" />
                             </div>
                             <div className="col col-lg-6 col-12 imgContainer">
                                 <img src="../images/restaurantfood.jpg" alt="Server holding meal on black platter." />
@@ -27,7 +27,7 @@ const HomePage = () => {
                             <h2 className="specials">This weeks specials!</h2>
                         </div>
                         <div className="col col-lg-6 col-12 buttonContainer">
-                            <CallToAction text="Online Menu" useClassName="yellowButton" aria-label="View the online menu at Little Lemon" />
+                            <CallToAction text="Online Menu" useClassName="yellowButton" link="/" aria-label="View the online menu at Little Lemon" />
                         </div>
                     </div>
                     <div className="row">
