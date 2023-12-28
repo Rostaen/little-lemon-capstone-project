@@ -1,6 +1,6 @@
 // import { useFormik } from "formik";
 // import * as Yup from 'yup';
-import { useState, useEffect, useReducer } from "react";
+import { useState, useEffect, useReducer, useCallback } from "react";
 import AvailableTimes from "./AvailableTimes";
 import Occasions from "./Occasions";
 import fakeAPI from "./FakeAPI";
@@ -14,32 +14,39 @@ const reducer = (state, action) => {
     }
 }
 
-const BookingForm = () => {
+const BookingForm = (props) => {
     const [state, dispatch] = useReducer(reducer, {availableTimes: [] });
     const [date, setDate] = useState();
     const [guests, setGuests] = useState(1);
     const [theOccasion, setTheOccasion] = useState("Celebration");
     const [selectedTime, setSelectedTime] = useState("");
+    const [guestName, setGuestName] = useState("");
 
-    const fetchData = async () => {
+    const fetchData = useCallback(async () => {
         try {
             return await fakeAPI.fetchAPI(new Date(date));
         } catch (error) {
             console.error('Error fetching data:', error);
             return [];
         }
-    }
+    }, [date]);
 
     useEffect(() => {
        fetchData().then((data) => {
         dispatch({ type: "SET_AVAILABLE_TIMES", payload: data });
        })
-    }, [date]);
+    }, [fetchData]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const guestData = [guestName, date, selectedTime, guests, theOccasion];
+        props.submitForm(guestData);
     };
 
+    const changeName = (e) => {
+        const newName = e.target.value;
+        setGuestName(newName);
+    }
     const changeDate = (e) => {
         const newDate = e.target.value;
         setDate(newDate);
@@ -61,6 +68,14 @@ const BookingForm = () => {
         <main className="p-3 row">
             <section className="col col-12 col-lg-4 reservationForm">
                 <form onSubmit={handleSubmit} aria-labelledby="bookingFormLabel">
+                    <div className="p-2">
+                        <label htmlFor="res-name" className="pe-2">Name</label>
+                        <input
+                            className="p-1"
+                            id="res-name"
+                            onChange={changeName}
+                            area-required="true" />
+                    </div>
                     <div className="p-2">
                         <label className="pe-2" htmlFor="res-date">Choose date</label>
                         <input
