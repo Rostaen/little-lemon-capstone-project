@@ -1,6 +1,6 @@
-// import { useFormik } from "formik";
-// import * as Yup from 'yup';
-import { useState, useEffect, useReducer, useCallback } from "react";
+import { useFormik } from "formik";
+import * as Yup from 'yup';
+import { useEffect, useReducer, useCallback } from "react";
 import AvailableTimes from "./AvailableTimes";
 import Occasions from "./Occasions";
 import fakeAPI from "./FakeAPI";
@@ -16,20 +16,47 @@ const reducer = (state, action) => {
 
 const BookingForm = (props) => {
     const [state, dispatch] = useReducer(reducer, {availableTimes: [] });
-    const [date, setDate] = useState();
-    const [guests, setGuests] = useState(1);
-    const [theOccasion, setTheOccasion] = useState("Celebration");
-    const [selectedTime, setSelectedTime] = useState("");
-    const [guestName, setGuestName] = useState("");
+
+    const validationSchema = Yup.object().shape({
+        name: Yup.string().required("Name is required"),
+        date: Yup.date().required("Date is required")
+            .min(new Date(), "Selected date must be today or a future date"),
+        time: Yup.string().required("Time is required"),
+        guests: Yup.number().required("Number of guests is required")
+            .min(1, "At least 1 guest is required")
+            .max(10, "We cannot accomidate more than 10 guests"),
+        occasion: Yup.string().required("Occasion is required"),
+    });
+
+    const formik = useFormik({
+        initialValues: {
+            name: '',
+            date: '',
+            time: '',
+            guests: 1,
+            occasion: 'Celebration',
+        },
+        validationSchema: validationSchema,
+        onSubmit: (values) => {
+            const guestData = [
+                values.name,
+                values.date,
+                values.time,
+                values.guests,
+                values.occasion
+            ];
+            props.submitForm(guestData);
+        }
+    });
 
     const fetchData = useCallback(async () => {
         try {
-            return await fakeAPI.fetchAPI(new Date(date));
+            return await fakeAPI.fetchAPI(new Date(formik.values.date));
         } catch (error) {
             console.error('Error fetching data:', error);
             return [];
         }
-    }, [date]);
+    }, [formik.values.date]);
 
     useEffect(() => {
        fetchData().then((data) => {
@@ -37,44 +64,26 @@ const BookingForm = (props) => {
        })
     }, [fetchData]);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const guestData = [guestName, date, selectedTime, guests, theOccasion];
-        props.submitForm(guestData);
-    };
-
-    const changeName = (e) => {
-        const newName = e.target.value;
-        setGuestName(newName);
-    }
     const changeDate = (e) => {
-        const newDate = e.target.value;
-        setDate(newDate);
-    }
-    const changeTime = (e) => {
-        const newTime = e.target.value;
-        setSelectedTime(newTime);
-    }
-    const changeGuests = (e) => {
-        const newGuests = e.target.value;
-        setGuests(newGuests);
-    }
-    const changeOccasion = (e) => {
-        const newOccasion = e.target.value;
-        setTheOccasion(newOccasion);
+        formik.handleChange(e);
+        fetchData();
     }
 
     return (
         <main className="p-3 row">
             <section className="col col-12 col-lg-4 reservationForm">
-                <form onSubmit={handleSubmit} aria-labelledby="bookingFormLabel">
+                <form onSubmit={formik.handleSubmit} aria-labelledby="bookingFormLabel">
                     <div className="p-2">
                         <label htmlFor="res-name" className="pe-2">Name</label>
                         <input
                             className="p-1"
                             id="res-name"
-                            onChange={changeName}
+                            name="name"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.name}
                             area-required="true" />
+                        {formik.touched.name && formik.errors.name && <div className="error">{formik.errors.name}</div>}
                     </div>
                     <div className="p-2">
                         <label className="pe-2" htmlFor="res-date">Choose date</label>
@@ -82,19 +91,26 @@ const BookingForm = (props) => {
                         className="p-1"
                         type="date"
                         id="res-date"
+                        name="date"
                         onChange={changeDate}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.date}
                         aria-required="true" />
+                        {formik.touched.date && formik.errors.date && <div className="error">{formik.errors.date}</div>}
                     </div>
                     <div className="p-2">
                         <label className="pe-2" htmlFor="res-time">Choose time</label>
                         <select
                             className="p-1"
-                            id="res-time
-                            "
-                            onChange={changeTime}
+                            id="res-time"
+                            name="time"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.time}
                             aria-label="Select a time">
                             <AvailableTimes />
                         </select>
+                        {formik.touched.time && formik.errors.time && <div className="error">{formik.errors.time}</div>}
                     </div>
                     <div className="p-2">
                         <label className="pe-2" htmlFor="guests">Number of guests</label>
@@ -105,19 +121,27 @@ const BookingForm = (props) => {
                             min="1"
                             max="10"
                             id="guests"
-                            onChange={changeGuests}
+                            name="guests"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.guests}
                             aria-label="Number of guests"
                             aria-describedby="guestsHint"/>
+                        {formik.touched.guests && formik.errors.guests && <div className="error">{formik.errors.guests}</div>}
                     </div>
                     <div className="p-2">
                         <label className="pe-2" htmlFor="occasion">Occasion</label>
                         <select
                             className="p-1"
                             id="occasion"
-                            onChange={changeOccasion}
+                            name="occasion"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.occasion}
                             aria-label="Select an occasion">
                             <Occasions />
                         </select>
+                        {formik.touched.occasion && formik.errors.occasion && <div className="error">{formik.errors.occasion}</div>}
                     </div>
                     <div className="p-2">
                         <input
@@ -126,11 +150,14 @@ const BookingForm = (props) => {
                             value="Make Your Reservation"
                             aria-label="Submit reservation form" />
                     </div>
+                    <div className="p-2 reminder">
+                        * All fields are required
+                    </div>
                 </form>
             </section>
             <section className="col col-12 col-lg-4 availableTimes">
                 <h2 className="text-center">Available Times</h2>
-                <h3 className="text-center">{date}</h3>
+                <h3 className="text-center">{formik.values.date}</h3>
                 <ul>
                    {state.availableTimes.map((time) => (
                     <li key={time} className="text-center">{time}</li>

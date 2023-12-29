@@ -1,5 +1,6 @@
 const AvailableTimes = () => {
     const timeSlots = [
+        "--:--",
         "17:00",
         "18:00",
         "19:00",
