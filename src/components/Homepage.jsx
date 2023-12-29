@@ -6,7 +6,7 @@ const HomePage = () => {
     return (
         <>
             <main className="container-fluid" aria-labelledby="homePageTitle">
-                <div className="hero-section" aria-labelledby="heroSectionTitle">
+                <div className="hero-section" aria-labelledby="heroSectionTitle" role="region">
                     <section className="container pt-4 pb-4">
                         <div className="row">
                             <div className="col col-lg-6 col-12">
@@ -21,7 +21,7 @@ const HomePage = () => {
                         </div>
                     </section>
                 </div>
-                <section className="container specials" aria-labelledby="specialsSectionTitle">
+                <section className="container specials" aria-labelledby="specialsSectionTitle" role="region">
                     <div className="row mb-4">
                         <div className="col col-lg-6 col-12">
                             <h2 className="specials">This weeks specials!</h2>
@@ -54,7 +54,7 @@ const HomePage = () => {
                         />
                     </div>
                 </section>
-                <section className="container testimonials" aria-labelledby="testimonialsSectionTitle">
+                <section className="container testimonials" aria-labelledby="testimonialsSectionTitle" role="region">
                     <h2 className="text-center mb-4">Testimonials</h2>
                     <div className="row">
                         <CustomersSay name="Robert" image="../images/testimonial 1.jpg" quote="Little Lemon's exquisite flavors take me on a culinary journey through the Mediterranean with every bite!" />
@@ -63,7 +63,7 @@ const HomePage = () => {
                         <CustomersSay name="Trevor" image="../images/testimonial 4.jpg" quote="As a food enthusiast, Little Lemon has become my top choice for experiencing the rich and diverse flavors of Mediterranean cuisine – a true hidden gem!" />
                     </div>
                 </section>
-                <section className="container lowerSection p-4" aria-labelledby="lowerInformationSectionTitle">
+                <section className="container lowerSection p-4" aria-labelledby="lowerInformationSectionTitle" role="region">
                     <div className="row">
                         <div className="col col-12 col-lg-6">
                             <h1>Little Lemon</h1>
