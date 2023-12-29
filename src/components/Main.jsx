@@ -6,17 +6,14 @@ import Homepage from "./Homepage";
 import BookingPage from "./BookingPage";
 import ConfirmedBooking from "./Confirmedbooking";
 import fakeAPI from "./FakeAPI";
-import { useState } from "react";
 
 const Main = () => {
-    const [formData, setFormData] = useState([]);
     const navigate = useNavigate();
 
     const submitForm = (data) => {
         const results = fakeAPI.submitAPI(data);
         if(results){
-            setFormData(...formData, data);
-            navigate("/confirmation", {state: {customProp: formData }});
+            navigate("/confirmation", {state: {customProp: data }});
         }
     }
 
