@@ -10,6 +10,7 @@ const CallToAction = (props) => {
             <button
                 onClick={handleClick}
                 className={props.useClassName}
+                aria-label="Link button click"
             >
                 <Link to={props.link}>
                     {props.text}
